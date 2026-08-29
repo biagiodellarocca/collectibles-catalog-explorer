@@ -1,19 +1,18 @@
 type SearchBarProps = {
 	query: string;
-	onChange: (value: string) => void;
+	onInputChange: (query: string) => void;
 };
 
-function SearchBar({ query, onChange }: SearchBarProps) {
+function SearchBar({ query, onInputChange }: SearchBarProps) {
 	return (
-		<>
+		<div>
 			<input
 				type="search"
+				aria-label="Search in the catalog"
 				value={query}
-				aria-label="Seach in the catalog"
-				onChange={(e) => onChange(e.currentTarget.value)}
+				onChange={(e) => onInputChange(e.currentTarget.value)}
 			/>
-		</>
+		</div>
 	);
 }
-
 export default SearchBar;
